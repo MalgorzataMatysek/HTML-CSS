@@ -1,0 +1,333 @@
+<!-- schemta jest taki:
+            HEAD
+            BODY
+                HEADER                  baglowek dokumentu lub sekcji
+                NAV                     nawigacja czyli ten poziomy spis
+                MAIN                    ASIDE - zawartosc poboczna np reklama
+                    SECTION         A    okresla sekcje np wprowadzenie, rozdzial 1, rozdzial 2
+                    ARTICLE         S    niezalezny samoidzielny artykul
+                        DIV         I
+                        SPAN        D
+                        P           E 
+                FOOTER                     stopka dokumentu lub sekcji
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- shift!+tab -->
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- metadane wykorzystywane przez przegladarki np do wyszukiwania; w name mozna zdefinioawc
+    opis stron, slowa kluczowem autora; w http-equiv mozna zdefiniowac odswiezanie -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 i CSS3</title>
+    <link rel="stylesheet" href="./index.css">
+    <!-- w title jest tytul ktory jest widoczny to ta zakladka na gorze -->
+    <!-- tutaj wrzuca sie zewnetrzne biblioteki ale te ktore ja sama sobie bede
+    pisac to na smym koncu body -->
+</head>
+<body style="background-color:rgb(163, 110, 59); color:rgba(2, 2, 2, 0.856);">
+<header class="header">
+<!-- oki tu na razie tak tylko wrzucilam jak linkowac, co ciekawe tagiem jest sama literka a i to ja odwoluje-->
+<!-- co wazne nalezy pamietac o cudzyslowiu -->
+<a href=""></a>
+<span title="Czy mnie widac kiedy najezdzasz myszka?">Tu bedzie naglowek a w naglowku chyba tabela</span> 
+<!-- dodanie tytulu - bedzie widoczny po najechaniu myszka --> <br>
+<span>teraz troche zabawy <span style="font-size: 300%;"> z wielkoscia </span> fonta</span>
+<br><span>Teraz matematyka CO<sub>2</sub> i m<sup>3</sup>no i chemia :D <br>
+Gadam sobie dalej ze bardzo <del>nie</del> lubie chodzic do szkoly</span><br>
+<span><br>
+
+    <a href="#end">KONIEC</a>    
+<br><br> bedzie sie dzialo TRAF W GROTA <br>
+<img src="../photos/yacht general.png" alt="ogolny jacht" usemap="#jacht" style="width: 200px; height: 200px;">
+    <map name="jacht">
+        <area shape="poly" coords="100,30 100,150 170,150" href="../photos/brawo.png" alt="brawo" onclick="myFunction()">
+    </map>
+<script>
+    function myFunction() {
+        alert("Wyskoczy  mordka")
+    }
+</script>
+
+<!-- <picture> tutaj jest przyklad tlo sie zmienia w zaleznosci od wielkosci ekranu
+    <source media="(min-width: 650px)" srcset="img_food.jpg">
+    <source media="(min-width: 465px)" srcset="img_car.jpg">
+    <img src="img_girl.jpg" style="width:auto;">
+</picture>
+<p>Resize the browser to see different versions of the picture loading at different viewport sizes.
+The browser looks for the first source element where the media query matches the user's current viewport width,
+and fetches the image specified in the srcset attribute.</p> -->
+
+<h4>TUTAJ BEDA LISTY</h4>
+<ul>NIEPOUKLADANA LISTA
+    <li style="list-style-type: circle;">Kasia</li>
+    <li style="list-style-type: square;">Basia</li>
+    <li>Zosia</li>
+</ul>
+
+<ul>
+    <li>Coffee</li>
+    <li>Tea
+        <ul>
+            <li>Black tea</li>
+            <li>Green tea</li>
+        </ul>
+    </li>
+    <li>Milk</li>
+</ul>
+
+<!-- nawet jesli zaczynam od c to wpisuje ze zaczynam od 3 literki -->
+<ol type="a" start="3">PONUMEROWANA LISTA 
+    <li>Nowak</li>
+    <li>Kowalska</li>
+    <li>Matysek</li>
+</ol>
+
+<dl>OPISOWA LISTA
+    <dt>Babcia</dt>
+    <dd>- ktos kto gotuje zupki pomidorowe</dd>
+    <dd>- ktos kto pilnusje zeby zakladac czapki</dd>
+    <dt>Dziadek</dt>
+    <dd>- ktos kto te zupki zjada</dd>
+</dl>
+
+<ul class="ul">
+    <li class="li"><a class="a" href="#home">Home</a></li>
+    <li class="li"><a class="a" href="#news">News</a></li>
+    <li class="li"><a class="a" href="#contact">Contact</a></li>
+    <li class="li"><a class="a" href="#about">About</a></li>
+</ul>
+
+<div style="background-image: url('../photos/kubek.jpg');">
+    You can specify background images<br>
+    for any visible HTML element.<br>
+    In this example, the background image<br>
+    is specified for a div element.<br>
+    By default, the background-image<br>
+    will repeat itself in the direction(s)<br>
+    where it is smaller than the element<br>
+    where it is specified. (Try resizing the<br>
+    browser window to see how the<br>
+    background image behaves.
+    </div>
+    <!-- rozne rzeczy mozna dorzucic do style'a ponizej przeyklady
+    background-image: url('img_girl.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -->
+
+<div class="div" style="background-color:rgb(15, 189, 15);color:white;padding:20px;">
+    <p>London is the capital city of England. It is the most populous city <br> in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+</div>
+<div class="div" style="background-color:rgb(122, 7, 7);color:white;padding:20px;">
+    <p>London is the capital city of England. It is the most populous city <br> in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+</div>
+
+<br><br>
+<h2>Floating Images</h2>
+<p><strong>Float the image to the right:</strong></p>
+<img src="../photos/smiley.gif" alt="Smiley face" style="float:right; width:42px; height:42px;">
+A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.
+</p>
+
+<p><strong>Float the image to the left:</strong></p>
+<p>
+<img src="../photos/smiley.gif" alt="Smiley face" style="float:left;width:42px;height:42px;">
+A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.  
+</p>
+<br>
+    <table>
+        <tr>
+            <th>Miesiąc</th>
+            <th>Oszczędności</th>
+        </tr>
+        <tr>
+            <td>Styczeń</td>
+            <td>100 PLN</td>
+        </tr>
+        <tr>
+            <td>Luty</td>
+            <td>80 PLN</td>
+        </tr>
+        <tr>
+            <td>Suma</td>
+            <td>180 PLN</td>
+        </tr>
+    </table>
+    
+<p>If your browser supports bi-directional override (bdo), the next line will be written from right to left (rtl):</p>
+<bdo dir="rtl">This line will be written from right to left</bdo></span><br><br>
+<address>
+    Written by John Doe.<br>
+    Visit us at:<br>
+    Example.com<br>
+    Box 564, Disneyland<br>
+    USA
+    </address>
+</span>
+<p style="color: white; font-family: 'Lucida Sans';">BIALy</p>
+<p style="color: yellowgreen; text-align: right;">zielony</p>
+<pre>
+Szla sobie zabka miala
+ktora mamy nie sluchala
+</pre>
+<h3>Sprawdzmy</h3>
+<p>jak bedzie sie zachowywac komenda hr esli wstawie ja za tym paragrafem</p>
+<hr title="przerwa">
+<h3>wynik</h3>
+<p>powyzeh ponad wynikiem powinna byc linia</p>
+<p>Kurcze strasznie glupie jest to ze zamiast uzywac cudzyslowia  z klawiatury to mozna wrzucac takie
+    polecnie <q>TO</q> i automatycznie ma dodac znaczki.</p>
+<p>This <!-- great text --> is a paragraph.</p>
+</header>
+
+
+
+
+    <h1>Witamy!</h1>
+    <h2 style="color: seagreen; background-color: slateblue;">Witamy!</h2>
+    <!-- kolory mozna slownie,m mozna szesnastkowo lub rgb. roznica miedzy rgb a rgba ze definiujesz alphe czyli przezroczystosc -->
+    <p style="color: black; font-size:xx-large;">na kursie</p>
+    <h3>by sie uczyc</h3>
+    <p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
+    <!-- cite mozna wrzucac samo zeby zaznaczyc nazwy dziel -->
+    <p>jak robic strone</p>
+    <!-- dziwne bo znak przekreslenia del zostal odwolany przez /strong ktory byl po drodze w tekscie -->
+    <p><strong> Lorem ipsum </strong> <del> dolor <b> sit </del> amet </b> consectetur adipisicing <i> elit. Aliquam </i> sapiente enim ratione <em> officia iusto </em> eveniet dolor! Libero ex, <mark> ratione harum velit labore eligendi! Quo, </mark> dignissimos <small> asperiores </small> similique <u> quaerat ex </u> nemo.</p> 
+    <p>Bardzo chce cos zacytowac na przeyklad to: <blockquote cite="https://wiadomosci.onet.pl/tylko-w-onecie/bruksela-nie-czeka-na-wyrok-tsue-i-rozpoczyna-procedure-podcast/1b3twp6?utm_source=wiadomosci.onet.pl_viasg_wiadomosci&utm_medium=referal&utm_campaign=leo_automatic&srcc=ucs&utm_v=2">O świecie w Onecie. Bruksela nie czeka na wyrok TSUE i rozpoczyna procedurę "pieniądze za praworządność</blockquote></p>
+    <!-- z tym cytowaniem bez sensu bo typlko info dla przegladrek ale przynajmniej ja tego nie widze -->
+    <p>Zostan moja <abbr title="Best Friend Forever"> BFF</abbr> albo gon sie.</p>
+    <!-- BFF glupio sie podkreslilo -->
+    <p>sprawdzmy teraz jak dziala pokazywanie kodow</p>
+    <p><code> var x=1 </code></p>
+    <!-- wpisalam to tak po prostu i dziala, moze zey sie nic nie sypalo tak na wszellki wypadek bo jak wpisalam z uzyciem nawiasow to nie bylo w podgladzie-->
+    <p>chce zeby ponizszy obraek przekierowal mnie na googla ale nowa strona</p>
+    <p>
+    <a href="http://www.google.com" target="_blank"> 
+        <img src="C:\Users\Marcin\Desktop\ANGULAR\photos\flower wreath 001.png" alt="kwiatek" style="width: 10%; height: 10%;">
+    </a></p>
+        <!-- jesli zostawie tyllko nazwe bez sciezki to mam mini oknke ze tu powinien byc obrazek plus obok nazwa ktora wpisalam w alt. 100% jest zajebiste bo w 100 % dopasowywuje sie do
+    widocznego rozmiaru okna, 50px to malentwo a 500px w miare ok. Bez sensu max/min content bo tkwi w rozmiarze oryginalnym, % zawsze procent widzialnej wielkosci screena . Pomiedzy
+procentami a vw tez mala roznica - generalnie vw to 1/100 viewport cokoliwek to jest porowynwalne do % OK chyba mam - czasem % odpowiada pierwszej zdefiniowanej  VW and VH are always relative to the viewport, 
+whereas percentages are relative to their first positioned ancestor (which is sometimes the viewport but not always oraz drugie wytlumaczenie percent values are relative to container, whereas vw/hw are 
+relative to viewport, so they're like absolute and relative positioning)-->
+<!--lista znakow specjalnych znajduyje sie tu http://www.degraeve.com/reference/specialcharacters.php-->
+</p>
+<a href="mailto:mmatysek@gmail.com">
+    <img src="../photos/santa_claus.png" alt="santa" style="height: 10%; width: 10%;">
+</a>
+<h3 style="background-color:Tomato; border:4px solid black">Tomato</h3>
+<h3 style="background-color:Orange; color: turquoise;">Orange</h3>
+<h3 style="background-color:DodgerBlue;">DodgerBlue</h3>
+<h3 style="background-color:MediumSeaGreen;">MediumSeaGreen</h3>
+<h3 style="background-color:Gray;">Gray</h3>
+<h3 style="background-color:SlateBlue;">SlateBlue</h3>
+<h3 style="background-color:Violet;">Violet</h3>
+<h3 style="background-color:LightGray; border:2px solid Violet">LightGray</h3>
+<p>&copy Goska</p>
+<p><style>
+    body {background-color: blue;}
+    h3 {color: red;}
+    p {color: rgb(2, 2, 2);}
+    </style> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates sed distinctio consectetur dolore sint, facere sapiente esse dolores voluptate assumenda aliquam nemo voluptatum porro nesciunt, earum, nisi eius dignissimos quaerat.</p>
+<!-- dziwne bo to znaczy ze CSS mozna bezposrednio gdziekolwek? wszystko co bylo oznaczone jako p i h3 zmienilp kolor ale tu okreslony kolor nie "nadpisal" koloru okreslonego w lonijce 12
+a na przyklad linijka 14 nadpisywala to -->
+<p><h2>Teraz czas na formularze</h2></p>
+<!-- kiedy robie / to wybieram pliki z danego miejsca, kiedy dodam ./ znaczy praktycznie to samo
+ale kiedy dam "../" to wybor mam z poziomu wyzej -->
+<form action="/formularz.php" style="color: black;">
+    <fieldset>
+    <h5>Dane do formularza</h5>  
+    Login: <input type="text" name="login" placeholder="wpisz nika"><br>
+    Hasło: <input type="password" name="haslo"><br>
+<!-- tutaj tez zwroc uwage na uzycie span -->
+    <label for="zarobki">
+        Oczekiwane zarobki: 
+        <span>0</span>
+        <input type="range" name="zarobki" min="0" max="3000">
+        <span>3000</span>
+    </label>
+    <input type="submit" value="Prześlij"><br><br>
+    <fieldset><legend>Dane osobowe</legend>
+<!-- WZOR tu ponizej idealnie z pododawanymi labels i id -->
+    <label for="name">Imię:<br>
+        <input type="text" name="name" placeholder="jak w dowodzie" id="name">
+    </label>
+    <br>
+    Nazwisko <br>
+    <input type="text" name="lastName" maxlength="10"><br>
+    </fieldset><br><fieldset><legend>Chlop czy baba</legend>
+    <input type="radio" name="sex" value="m">Mężczyzna
+    <input type="radio" name="sex" value="f">Kobieta
+    <input type="radio" name="sex" value="u">Niezdecydowany
+    </fieldset><br><fieldset><legend>Mlody czy stary</legend>
+    <input type="radio" name="age" value="d">Dorosły<br>
+    <input type="radio" name="age" value="k">Dziecko<br>
+    <input type="radio" name="age" value="o">Stary<br>
+    </fieldset><br><fieldset><legend>Wygląd</legend>
+    <!-- przy radio mozna wybrac jedna odpowiedz ale z tych o tej samej nazwie.
+    nowa inna nazwa nowe wybieranie -->
+    <input type="checkbox" checked name="hair" value="s">Krótkie<br>
+    <input type="checkbox" name="hair" value="l">Dlugie<br>
+    <input type="checkbox" name="hair" value="b">Łysy<br>
+    </fieldset><br>
+    <fieldset><legend>Testujemy opcje</legend>
+        Wybierz miasto:
+        <select name="city">
+        <option value="warszawa">Warszawa</option>
+        <option value="katowice">Katowice</option>
+        <option value="gdansk" selected>Gdansk</option>
+    </select></fieldset>
+    <fieldset><legend>Różne bez pomyslu</legend>
+    <!-- przy checkbox miala byc tylko jedna odpowiedz ale wyszlo inaczej :) dopisanie
+    gdziekolwiek wyrazu checked na start zaznacza ta opcje ale mozna ja odcheckowac -->
+    <input type="number"><br>
+    <input type="date"><br>
+    </fieldset><br>
+    Przed wsylaniem napisz cos jeszcze do nas <br>
+    <textarea name="endText" cols="30" rows="10" maxlength="15">No pisz!</textarea><br>
+    <input type="submit" value="Potwierdz"><br>
+</fieldset>
+</form>
+<a href="https://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
+<!-- dorzucenie _blank do gory spowoduje otwarcie w nowym oknie -->
+<br>
+tutaj wrzucimy buttona, dziala ale trzeba uwazac na podwojne cudzyslowia plus sciezka dostepu zxakrecona tzn ten myk z ../ nie zadzialal; <br>
+<button onclick="document.location='C:/Users/Marcin/Desktop/ANGULAR/HTML%20i%20CSS.pdf'">Klikamy sobie i sycyerye cokolwiek wpisalam do onclicka to nie dzialao</button>
+<br>
+<p id="end">
+tutaj bedziemy chcieli wyladowac po kliknieciu linka do bookmarka</p><br><br>
+
+<!-- JavaScript can access elements with a specific class name with the getElementsByClassName() method -->
+<h2>Use of The class Attribute in JavaScript</h2>
+<p>Click the button to hide all elements with class name "city":</p>
+
+<button onclick="myFunction()">Hide elements</button>
+
+<h2 class="city">London</h2>
+<p>London is the capital of England.</p>
+
+<h2 class="city">Paris</h2>
+<p>Paris is the capital of France.</p>
+
+<h2 class="city">Tokyo</h2>
+<p>Tokyo is the capital of Japan.</p>
+<!-- w script wpisujemy co ma sie wydarzyc jak bedziemy klikac -->
+<script>
+function myFunction() {
+    var x = document.getElementsByClassName("city");
+    for (var i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+}
+</script>
+<!-- 
+A class name can be used by multiple HTML elements, while an id name must only be used by one HTML element within the page:
+#myHeader {
+<h1 id="myHeader">
+-->
+
+</body>
+</html>

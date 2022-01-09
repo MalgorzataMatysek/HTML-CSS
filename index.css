@@ -1,0 +1,342 @@
+/* czy to jest komentarz? tak juz sie dowiedialam ze tak  :) to komentowanie
+CSS can be added to HTML documents in 3 ways:
+    Inline - by using the style attribute inside HTML elements
+    Internal - by using a <style> element in the <head> section
+    External - by using a <link> element to link to an external CSS file
+
+INLINE pisany nie tutaj ale w html wygladalby tak:
+<h1 style="color:blue;">A Blue Heading</h1>
+
+INTERNAL wtedy w html nie tutaj w head gdzie sie normalnie nie pisze definiuje caly styl
+                <head>
+                    <style>
+                        body {background-color: powderblue;}
+                        h1   {color: blue;}
+                        p    {color: red;}
+                    </style>    
+                </head>
+                <body>
+                    <h1>This is a heading</h1>
+                    <p>This is a paragraph.</p>
+                </body>
+
+EXTERNAL polecany osobny plik z css a w htms tylko link. Plik jakikolwiek edytor tekstowy bez znakow html i z rozszerzeniem css
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+PADDING VS MARGIN no i BORDER - w srodku mamy tekst, odstep miedzy tekstem a borderem to padding. Odstep midzy 
+borderem na zawnatrz a calym swiatem to margin
+p { 
+    border: 2px solid powderblue;
+    padding: 0px;
+    margin: 10px;
+}
+*/
+
+/* linki w zaleznosci od tego czy sa aktywne, czy sie na nie najezdza moga miec rozne kolory 
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+*/
+/* 
+Innym sposobem jest udanie za pomoca stylizacji css ze link to button
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+jesli element nalezy do wiecej niz 1 klasy to nazwy oddzielamy spcja
+<h2 class="city main">London</h2>
+a potem kazda z osobna opisujemy
+.city {}
+.main {}
+
+a:hover, a:active {
+    background-color: red;
+}
+*/
+.header{
+    color: rgb(0, 0, 0);
+}
+/* jak nie ma kropki to wszystkie h4 zostana wystylizowane, jesli dam kropke to tylko te, ktorym przypisano klase h4 */
+h4 {
+    color: blue;
+    font-family: verdana;
+    font-size: 300%;
+}
+
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    overflow: hidden;
+}
+
+.li {
+    float: left;
+}
+
+.li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.li a:hover {
+    background-color: #111111;
+}
+
+.div {
+    float: left;
+    
+}
+
+/* CSS Selectors
+1. Simple selectors (select elements based on name, id, class)
+    -- The CSS element Selector
+    Here, all <p> elements on the page will be center-aligned, with a red text color: 
+        p {
+            text-align: center;
+            color: red;
+        }
+    -- The CSS id Selector, is used to select one unique element! przyjklady to nav, footer, itd
+    The CSS rule below will be applied to the HTML element with id="para1":   WAZNE ID nie moze zaczynac sie od cyfry
+        #para1 {
+            text-align: center;
+            color: red;
+        }
+    -- The CSS class Selector
+    In this example only <p> elements with class="center" will be red and center-aligned: 
+        p.center {
+            text-align: center;
+            color: red;
+        }
+    -- The CSS Universal Selector
+    The CSS rule below will affect every HTML element on the page: 
+        * {
+            text-align: center;
+            color: blue;
+        }
+    -- The CSS Grouping Selector
+        h1, h2, p {
+            text-align: center;
+            color: red;
+        }
+------ Selektory potomka - pozwala nadawać styl tym elementom, które mają określonych przodków. Selektor potomka tworzymy co najmniej za pomocą dwóch selektorów CSS, pomiędzy którymi należy umieścić 
+    przynajmniej jeden znak spacji
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Katalog</a></li>
+            <li><a href="#">Pomoc</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    i wtedy wrzucamy:
+        ul li a {
+            font-size: 1.4em;
+        }
+---- dziecko vs potomek: potomek bezpieczniejszy, bardziej ogolny, potomek zawsze potomkiem niewazne ile poziomow dalej. dziecko musi byc konkretne info kto jest rodziciem. i wnuk czyli dalsze poziomy juz sie nie 
+    zalapia
+------- Selektory dziecka - element jest dzieckiem w stosunku do innego elementu, jeśli jest w nim zawarty i jest o jeden szczebel niżej.
+        <article>
+            <header>
+            <h3>Artykuł 1</h3>
+            </header>
+            <h3>Lorem ipsum</h3>
+        </article>
+    wtedy piszesz
+        article > h3 {
+            font-style: italic;
+        }
+--------Selektory rodzeństwa - służy do wyróżniania elementów poprzedzonych innym elementem w danym kontenerze, np. akapitów poprzedzonych nagłówkiem stopnia pierwszego.
+            <h3>Lorem ipsum</h3>
+            <br>
+            <p>Lorem ipsum dolor sit amet</p>
+    wtedy wstawiasz
+            h3~p {
+            color: #C00;
+        }
+
+2. Combinator selectors (select elements based on a specific relationship between them)
+3. Pseudo-class selectors (select elements based on a certain state)
+4. Pseudo-elements selectors (select and style a part of an element) h3:last-child lub  :last-of-type :first-of-type
+            ciekawe jest :nth-child (jego pomocą możemy nadać właściwości określonym (np. parzystym, nieparzystym, pierwszemu, siódmemu, dziesiątemu, co dwunastemu) elementom dziecka:)
+            li:nth-child(3) trzecie dziecko bedzie czerwone, jesli zamiast 3 damy even lub odd to wszystkie (nie)parzyste nam sie zmienia, mozna kombinowac matematycznie jak 2n lub 2n+1
+            <p class="intro">Phasellus hendrerit tellus blandit </p> mozemy najpierw okreslamy jakas klase a potem p:not(.intro) czyli co nie bedzie brane pod uwage
+            :only-of-type - dotyczy tylko tych elementów, które nie mają rodzeństwa. 
+            :empty - formatuje te elementy, które nie posiadają dzieci i nie zawierają innych elementów
+            sa jeszcze  :link, :visited, :active, :focus, :checked, :after, :before
+5. Attribute selectors (select elements based on an attribute or attribute value)  a[href^="http"]  lub a[href$="html"]  tylko nie wiem jak roznica
+
+ !important; /dopisany nadaje pierwszenstwo niezaleznie od polozenia - nieeleganckie
+
+KOLORY
+In these chapters, you will learn about the following CSS background properties:
+    background-color
+    background-image
+    background-repeat
+    background-attachment  fixed - jak scrolluje to sie przesuwa zeby caly czas widac go bylo, scroll - ucieka
+    background-position
+    background (shorthand property) na skroty wszystko w jednym ale po kolei np: body {
+  background: #ffffff url("img_tree.png") no-repeat right top;  koleknosc jak wyzej 
+
+background-color: green;
+opacity: 0.3;
+- tutaj opacity ma zastosowanie dla wszystkiego rowniez tekstu, zeby tego uniknac trzeba uzywac RGBA
+background: rgba(0, 128, 0, 0.3)
+
+background-image
+background-image: url("paper.gif");
+
+background-image: url("gradient_bg.png");
+background-repeat: repeat-x;      ----- to oznacza ze obraz powtarza sie tylko horyzopntalniue
+                moze byc z zeby pionowo lub no-repeat; zeby sie nie powtrzal
+
+                background-position
+    right top;
+
+
+CSS Border Style
+The border-style property specifies what kind of border to display.
+
+The following values are allowed:
+
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+
+border-color: red green blue yellow; red top, green right, blue bottom and yellow left
+
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+
+The border property is a shorthand property for the following individual border properties:
+
+border-width
+border-style (required)
+border-color
+
+
+border-radius: 5px;
+
+Use the box-sizing property to keep the width at 300px, no matter the amount of padding:
+
+div {
+  width: 300px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+max-width property is used to set the maximum width of an element.
+min-width
+
+
+
+CSS has the following outline properties:
+
+outline-style (requirerd: solid, dotted)
+outline-color
+outline-width
+outline-offset (odstep od border, totalnie ignoruje margin)
+outline
+Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, 
+and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's 
+total width and height is not affected by the width of the outline.
+
+
+text
+div {
+  background-color: blue;
+  color: white;
+  text-align-last: justify;          (ostatnia linijka jka bedzie)
+  direction: rtl;        (right ti keft czyli pisze od lewej ale jakos po kolei)
+  unicode-bidi: bidi-override;  (to sprawia ze na odwrot choc samo nic nie robi)
+}
+img.a {   (ustawienie jakiegos malego obrazka w tekscie)
+  vertical-align: baseline;
+  vertical-align: text-top;
+  vertical-align: text-bottom;
+  vertical-align: sub;
+  vertical-align: super;
+}
+text-decoration: none; overline; line-through; underline;
+text-transform: uppercase; lowercase; capitalize; (tylko pierwsze litery)
+text-indent: 50px;   okreslenie wielkosci / glebokosci akapitu
+letter-spacing: 5px; mozna tez dac ujemne -2px;
+line-height: 0.7; odstep miedzy wierszami
+word-spacing: 10px;  odstep miedzy wyrazami, rowniez ujemne
+white-space: nowrap; normal | pre | nowrap | pre-wrap | pre-line | break-spaces
+text-shadow: 2px 2px 5px red;  horizontal and vertical 2 px w kolorze red ale rozmyty na 5px (mozna dac dwa kolory obok siebie text-shadow: 3px 3px 3px #FF0000, 0 0 5px #0000FF;)
+
+FONTY
+    font-family: "Times New Roman", Times, serif;    od najbqrdziej chchianego po rodzaj ogolny: serif, sans-serif, monospace, cursive, fantasy
+    font-style: normal, italic, oblique (rzadko)
+    font-weight: normal, bold
+    font-variant: small-caps (drukowane ale podzial na male i duze), normal
+
+EM - To allow users to resize the text (in the browser menu), many developers use em instead of pixels. 1em is equal to the current font size. 
+    The default text size in browsers is 16px. So, the default size of 1em is 16px. The size can be calculated from pixels to em using this formula: pixels/16=em
+    Najlepiej korzystac z kombinacji em i %
+        body {
+            font-size: 100%;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+Korzystanie z google font
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+<style>
+h1.a {font-family: "Audiowide", sans-serif;}
+h1.b {font-family: "Sofia", sans-serif;}
+h1.c {font-family: "Trirong", serif;}
+</style>
+</head>
+font effects dodano
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+<h1 class="font-effect-fire">Sofia on Fire</h1>
+
+Mozna tez wrzucac icony; uzywa sie do tego <i> mozna z googla korzystac a mozna tez z fontawesome.com gdzie
+trzeba sie zarejestrowac trzecia opcja to https://icons.getbootstrap.com/
+
+
+
+
+
+
+
+    */
+
